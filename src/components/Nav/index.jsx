@@ -1,15 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { Link, IndexLink } from 'react-router'
 
 const Nav = (props) => (
   <nav>
     <h1>This is my nav. Need some links.</h1>
     <ol>
       <li>
-        <Link to="/" activeClassName="active">Home</Link>
+        <IndexLink to="/" activeClassName="active">Home</IndexLink>
       </li>
       <li>
-        <Link to="/about" activeClassName="active">About</Link>
+        <Link to="/about" activeClassName="active">About!!</Link>
       </li>
       <li>
         <Link to="/quotes/24" activeClassName="active">Quotes</Link>

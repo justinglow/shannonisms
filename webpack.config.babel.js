@@ -28,6 +28,7 @@ const baseConfig = {
   output: {
     path: PATH_DIST,
     filename: PROD ? '[name]-[hash].js' : 'bundle.js',
+    publicPath: '/',
     chunkFilename: '[name]-[chunkhash].js'
   },
   resolve: {
@@ -74,7 +75,10 @@ const baseConfig = {
   },
   plugins: [
     // HTML injection
-    new HtmlWebpackPlugin({ template: './index.html' })
+    new HtmlWebpackPlugin({
+      filename: '200.html',
+      template: './index.html'
+    })
   ],
   eslint: {
     formatter: eslintFormatter
@@ -137,7 +141,10 @@ if (PROD) {
       colors: true,
       inline: true,
       hot: true,
-      contentBase: PATH_DIST
+      contentBase: PATH_DIST,
+      historyApiFallback: {
+        index: '/200.html'
+      }
     }
   })
 }

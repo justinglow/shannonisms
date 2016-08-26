@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Router, Route, IndexRoute, hashHistory } from 'react-router'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
 import Layout from './components/Layout'
 import Landing from './components/Landing'
@@ -16,7 +16,7 @@ const App = React.createClass({
   },
   render () {
     return (
-      <Router history={hashHistory}>
+      <Router history={browserHistory}>
         <Route path="/" component={Layout}>
           <IndexRoute component={Landing} />
           <Route path="/about" component={About} />

@@ -16,7 +16,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "lint:webpack": "eslint webpack.config.babel.js",
+    "lint": "eslint src",
+    "deploy": "surge -p dist/ -d shannonisms.surge.sh",
     "analyze": "cross-env NODE_ENV=production webpack --json | webpack-bundle-size-analyzer"
   },
   "devDependencies": {
