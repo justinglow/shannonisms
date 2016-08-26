@@ -11,3 +11,7 @@ export function getAllQuotes () {
 export function quoteCount () {
   return quotes.quotes.length
 }
+
+export function randomID () {
+  return Math.floor(Math.random() * (quoteCount() - 0))
+}
