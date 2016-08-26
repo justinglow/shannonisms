@@ -1,13 +1,30 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 
-import Bjork from './components/Bjork'
+import Layout from './components/Layout'
+import Landing from './components/Landing'
+import About from './components/About'
+import Quotes from './components/Quotes'
 
-const HelloWorld = () => (
-  <div>
-    <Bjork title="I love you" />
-    <Bjork title="Yes!" />
-  </div>
-)
+import { getAllQuotes } from './data'
 
-ReactDOM.render(<HelloWorld />, document.getElementById('app'))
+const App = React.createClass({
+  checkQuote (nextState, replace) {
+    const { id } = nextState.params
+    if (id === undefined || id >= getAllQuotes().length) replace('/')
+  },
+  render () {
+    return (
+      <Router history={hashHistory}>
+        <Route path="/" component={Layout}>
+          <IndexRoute component={Landing} />
+          <Route path="/about" component={About} />
+          <Route path="/quotes(/:id)" component={Quotes} onEnter={this.checkQuote} />
+        </Route>
+      </Router>
+    )
+  }
+})
+
+ReactDOM.render(<App />, document.getElementById('app'))

@@ -88,9 +88,7 @@ if (PROD) {
     plugins: [
       // set the env variable
       new webpack.DefinePlugin({
-        'process.env': {
-          BABEL_ENV: JSON.stringify(process.env.NODE_ENV)
-        }
+        'process.env.NODE_ENV': JSON.stringify('production')
       }),
       // clean out dist folder
       new CleanWebpackPlugin([ PATH_DIST ], {
