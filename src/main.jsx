@@ -7,12 +7,12 @@ import Landing from './components/Landing'
 import About from './components/About'
 import Quotes from './components/Quotes'
 
-import { getAllQuotes } from './data'
+import { quoteCount } from './data'
 
 const App = React.createClass({
   checkQuote (nextState, replace) {
     const { id } = nextState.params
-    if (id === undefined || id >= getAllQuotes().length) replace('/')
+    if (id === undefined || id >= quoteCount()) replace('/')
   },
   render () {
     return (

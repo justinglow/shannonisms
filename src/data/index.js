@@ -7,3 +7,7 @@ export function getQuote (id) {
 export function getAllQuotes () {
   return quotes.quotes
 }
+
+export function quoteCount () {
+  return quotes.quotes.length
+}
