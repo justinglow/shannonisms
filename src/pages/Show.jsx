@@ -1,20 +1,40 @@
 import React from 'react'
+import { sample } from 'lodash'
 
-import Quote from '../components/Quote'
 import Debug from '../components/Debug'
 
-const ShowPage = props => (
-  <div className="show">
-    <h1>This is the show page</h1>
-    <Quote id={props.params.id} />
-    <Debug spit={props.params} />
-  </div>
-)
+import RawQuotes from '../quotes'
+const quotes = RawQuotes.quotes
 
-const { object } = React.PropTypes
+const { object, array, string } = React.PropTypes
 
-ShowPage.propTypes = {
-  params: object
-}
+const ShowPage = React.createClass({
+  propTypes: {
+    params: object,
+    routes: array,
+    quote: string
+  },
+  getInitialState () {
+    return {
+      quote: ''
+    }
+  },
+  updateQuote (quoteID) {
+    this.setState({ quote: quoteID ? quotes[quoteID] : sample(quotes) })
+  },
+  componentWillMount () {
+    this.updateQuote(this.props.params.id)
+  },
+  componentDidUpdate () {
+    console.log('updated')
+  },
+  render () {
+    return <div className="show">
+      <h1>This is the show page</h1>
+      <u>{this.state.quote}</u>
+      <Debug spit={this.props} />
+    </div>
+  }
+})
 
 export default ShowPage

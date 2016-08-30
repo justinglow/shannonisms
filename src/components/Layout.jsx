@@ -9,10 +9,11 @@ const Layout = (props) => (
   </div>
 )
 
-const { element } = React.PropTypes
+const { element, array } = React.PropTypes
 
 Layout.propTypes = {
-  children: element.isRequired
+  children: element.isRequired,
+  routes: array.isRequired
 }
 
 export default Layout

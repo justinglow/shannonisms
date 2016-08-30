@@ -1,6 +1,6 @@
 import React from 'react'
 
-const DisclaimerPage = () => (
+const DisclaimerPage = props => (
   <div className="disclaimer">
     <h2>Disclaimer</h2>
   </div>

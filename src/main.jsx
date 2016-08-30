@@ -7,7 +7,7 @@ import Layout from './components/Layout'
 import ShowPage from './pages/Show'
 import DisclaimerPage from './pages/Disclaimer'
 import SubmitPage from './pages/Submit'
-import QuotesPage from './pages/Quotes'
+import QuotesPage from './pages/AllQuotes'
 
 const App = () => (
   <Router history={browserHistory}>
